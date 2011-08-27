@@ -34,10 +34,5 @@ app.get('/', function(req, res){
   });
 });
 
-app.get('/helloworld', function(req, res){
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello World\n');
-});
-
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
