@@ -1,14 +1,13 @@
-// uncomment before deploy
-nko = require('nko')('UPCjVVJFyXVIb+Wu');
-
-var  HOSTED_ON_JOYENT = /\/home\/node\/node\-service\/releases\/[^\/]*\/server.js/.test(__filename)
-    ,WEBSERVER_PORT = HOSTED_ON_JOYENT ? 80 : 8080
 
 /**
  * Module dependencies.
  */
+var  HOSTED_ON_JOYENT = /\/home\/node\/node\-service\/releases\/[^\/]*\/server.js/.test(__filename)
+    ,WEBSERVER_PORT = HOSTED_ON_JOYENT ? 80 : 8080
 
-var express = require('express');
+
+var express = require('express')
+    , nko = require('nko')('UPCjVVJFyXVIb+Wu');
 
 var app = module.exports = express.createServer();
 
@@ -39,5 +38,5 @@ app.get('/', function(req, res){
   });
 });
 
-if (!module.parent) app.listen(WEBSERVER_PORT);
-console.log("Express application running at "+WEBSERVER_PORT);
+app.listen(WEBSERVER_PORT);
+console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
