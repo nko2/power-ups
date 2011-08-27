@@ -2,12 +2,8 @@
 /**
  * Module dependencies.
  */
-var  HOSTED_ON_JOYENT = /\/home\/node\/node\-service\/releases\/[^\/]*\/server.js/.test(__filename)
-    ,WEBSERVER_PORT = HOSTED_ON_JOYENT ? 80 : 8080
 
-
-var express = require('express')
-    ,nko = require('nko')('UPCjVVJFyXVIb+Wu');
+var express = require('express');
 
 var app = module.exports = express.createServer();
 
@@ -38,12 +34,11 @@ app.get('/', function(req, res){
   });
 });
 
-
-app.get('/match/new', function(req, res){
-  res.render('bla', {
-    title: 'New Match'
-  });
+app.get('/helloworld', function(req, res){
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World\n');
 });
 
-app.listen(WEBSERVER_PORT);
+app.listen(8080);
+
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
