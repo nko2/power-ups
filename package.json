@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "express": "~2.4.6",
-    "jade": "~0.15.2", 
-	"nko": "~0.0.1"
+    "ejs": "~0.0.1",
+    "nko": "~0.0.1"
   },
   "devDependencies": {}
 }
