@@ -1,5 +1,5 @@
 // uncomment before deploy
-// nko = require('nko')('my-secret-key');
+nko = require('nko')('UPCjVVJFyXVIb+Wu');
 
 /**
  * Module dependencies.
