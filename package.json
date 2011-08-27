@@ -7,9 +7,6 @@
     "type": "git",
     "url": "git://github.com/nko2/power-ups.git"
   },
-  "engines": {
-    "node": "~v0.4.11"
-  },
   "dependencies": {
     "express": "~2.4.6",
     "jade": "~0.15.2"
