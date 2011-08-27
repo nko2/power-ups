@@ -38,12 +38,5 @@ app.get('/', function(req, res){
   });
 });
 
-
-app.get('/match/new', function(req, res){
-  res.render('bla', {
-    title: 'New Match'
-  });
-});
-
 app.listen(WEBSERVER_PORT);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
