@@ -12,5 +12,5 @@
     "jade": "~0.15.2", 
 	"nko": "~0.0.1"
   },
-  "devDependencies": {}
+  "devDependencies": {}  
 }
