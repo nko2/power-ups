@@ -7,7 +7,7 @@ var  HOSTED_ON_JOYENT = /\/home\/node\/node\-service\/releases\/[^\/]*\/server.j
 
 
 var express = require('express')
-    , nko = require('nko')('UPCjVVJFyXVIb+Wu');
+    ,nko = require('nko')('UPCjVVJFyXVIb+Wu');
 
 var app = module.exports = express.createServer();
 
@@ -35,6 +35,13 @@ app.configure('production', function(){
 app.get('/', function(req, res){
   res.render('index', {
     title: 'Express'
+  });
+});
+
+
+app.get('/match/new', function(req, res){
+  res.render('bla', {
+    title: 'New Match'
   });
 });
 
