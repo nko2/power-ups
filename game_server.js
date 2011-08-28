@@ -46,18 +46,22 @@ app.get('/newMatch', function(req, res){
   
   var game = new Game(blurb); 
   games[blurb] = game;
-  console.log(blurb);
-  console.log(game.getBlurb());
   
-  res.redirect('/');
+  game.initGame();
+  
+  res.redirect('/match/' + blurb + '/player1');
   
 });
 
-app.get('/match/:blurb', function(req, res){
+app.get('/match/:blurb/:player', function(req, res){
+  
+  
   game = games[req.params.blurb];
+  player = req.params.player;
   if( typeof game != 'undefined'){
     res.render('match', {
       title: 'Game',
+      player: player,
       blurb: game.blurb
     });
   }
@@ -70,85 +74,59 @@ app.get('/match/:blurb', function(req, res){
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-app.get('/table/:playerName', function(req, res){
+app.get('/match/:blurb/gamestatus/:playerName', function(req, res){
   
-  
-  
-  
-  res.render('player1', {
-    title: 'Player 1'
+  game = games[req.params.blurb];
+  player = req.params.playerName;
+  if( typeof game != 'undefined'){
     
-  });
+    if (player == 'player1') {
+      var cube = game.player1.getCube();
+      var shots = game.player1.getShots();
+    }
+
+    if (player == 'player2') {
+      var cube = game.player2.getCube();
+      var shots = game.player2.getShots();
+      game.getStatusPlayer2('connected');
+    }
+
+    var dict = {
+      'cube': cube,
+      'shots': shots,
+      'player2_connected': game.player2Connected(),
+      'turn': game.turn
+    }
+
+    res.header('Content-Type', 'text/plain');
+    res.send(JSON.stringify(dict));
+  }
+  else {
+    res.render('error', {
+      title: 'Error', 
+      msg: 'The game ' + req.params.blurb + ' does not exists.'
+    });
+  }
 });
 
-app.get('/cube/:playerName', function(req, res){
-  
-  if (req.params.playerName == 'player1') {
-    var cube = player1.getCube();
-    var shots = player1.getShots();
-  }
-  
-  if (req.params.playerName == 'player2') {
-    var cube = player2.getCube();
-    var shots = player2.getShots();
-  }
-  
-  var dict = {
-    'cube': cube,
-    'shots': shots
-  }
-  
-  res.header('Content-Type', 'text/plain');
-  res.send(JSON.stringify(dict));
-
-});
-
-app.get('/fire/:playerName/:xyz', function(req, res){
+app.get('/match/:blurb/:playerName/fire/:xyz', function(req, res){
   // parse xyz to grab the position
   pos_x = req.params.xyz.substr(0,1);
   pos_y = req.params.xyz.substr(1,1);
   pos_z = req.params.xyz.substr(2,1);
   
-    if (req.params.playerName == 'player1') {    
-    if ((player2.cube[pos_x][pos_y][pos_z] == "1") && (player1.shots[pos_x][pos_y][pos_z] == '0')) {
-      player1.setShot(pos_x, pos_y, pos_z, 'hit');
-      player1.upScore();
-    }
-    if ((player2.cube[pos_x][pos_y][pos_z] == "0") && (player1.shots[pos_x][pos_y][pos_z] == '0')) {
-      player1.shots[pos_x][pos_y][pos_z] == '2';
-    } 
-    
+  game = games[req.params.blurb];
+  player = req.params.playerName;
+  if( typeof game != 'undefined'){
+    game.fire(player, pos_x, pos_y, pos_z);
+    res.send('okay');
   }
-  if (req.params.playerName == 'player2') {    
-    if ((player1.cube[pos_x][pos_y][pos_z] == "1") && (player2.shots[pos_x][pos_y][pos_z] == '0')) {
-      player2.setShot(pos_x, pos_y, pos_z, 'hit');
-      player2.upScore();
-    }
-    if ((player1.cube[pos_x][pos_y][pos_z] == "0") && (player2.shots[pos_x][pos_y][pos_z] == '0')) {
-      player1.setShot(pos_x, pos_y, pos_z, 'miss');
-    }
-    
+  else {
+    res.render('error', {
+      title: 'Error', 
+      msg: 'The game ' + req.params.blurb + ' does not exists.'
+    });
   }
-  
-  // just for http 200 check
-  res.send('okay');
   
 });
 
