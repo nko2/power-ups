@@ -32,11 +32,11 @@ app.configure('production', function(){
 
 // Routes
 
-app.get('/', function(req, res){
-  res.render('index', {
-    title: 'Express'
-  });
-});
+// app.get('/', function(req, res){
+//   res.render('index', {
+//     title: 'Express'
+//   });
+// });
 
 app.listen(WEBSERVER_PORT);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
