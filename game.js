@@ -1,16 +1,12 @@
-
-/**
- * Module dependencies.
- */
 var WEBSERVER_PORT = 8080
 
-
+// Module dependencies.
 var express = require('express');
-
 var app = module.exports = express.createServer();
 
-// Configuration
+var Cube = require('../lib/cube').Cube;
 
+// Configuration
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
@@ -28,8 +24,10 @@ app.configure('production', function(){
   app.use(express.errorHandler()); 
 });
 
-// Routes
+var player1 = new Cube()
+    , player2 = new Cube();
 
+// Routes
 app.get('/', function(req, res){
   res.render('index', {
     title: 'Express'
