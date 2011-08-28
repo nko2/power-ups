@@ -10,6 +10,18 @@
  * ==|== normalize ==========================================================
  */
 
+@font-face {
+    font-family: 'DiavloMedium';
+    src: url('/fonts/diavlo_medium_ii_37-webfont.eot');
+    src: url('/fonts/diavlo_medium_ii_37-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/diavlo_medium_ii_37-webfont.woff') format('woff'),
+         url('/fonts/diavlo_medium_ii_37-webfont.ttf') format('truetype'),
+         url('/fonts/diavlo_medium_ii_37-webfont.svg#DiavloMedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 
 /* =============================================================================
    HTML5 display definitions
@@ -211,22 +223,6 @@ td { vertical-align: top; }
 /* ==|== primary styles =====================================================
    Author: 
    ========================================================================== */
-
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
-}
-
-
-
-
-
-
-
 
 
 

@@ -1,0 +1,31 @@
+@import url('/stylesheets/style.css');
+
+body {
+  background: url('/images/temp/01-home.png') no-repeat 50% 0;
+  padding: 50px;
+  font-size: 14px;
+  background-color: #CCCACA;
+  font-family: 'DiavloMedium';
+  color: #777676;
+}
+
+a {
+  
+}
+
+#container {
+  width: 1024px;
+  margin: 0 auto;
+}
+#main{
+  
+}
+#video_container {
+  margin: 0 auto;
+}
+#playButton {
+  margin: 0 auto;
+}
+#instructions {
+  margin: 0 auto;
+}

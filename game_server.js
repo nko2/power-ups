@@ -1,8 +1,10 @@
-var WEBSERVER_PORT = 8080
+var  HOSTED_ON_JOYENT = /\/home\/node\/node\-service\/releases\/[^\/]*\/server.js/.test(__filename)
+    ,WEBSERVER_PORT = HOSTED_ON_JOYENT ? 80 : 8080
 
 // Module dependencies.
 var express = require('express');
 var app = module.exports = express.createServer();
+nko = require('nko')('UPCjVVJFyXVIb+Wu');
 
 var game = require('./lib/game').Game;
 var utils = require('./lib/util').Util;
