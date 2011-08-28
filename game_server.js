@@ -55,15 +55,22 @@ app.get('/table/:playerName', function(req, res){
 app.get('/cube/:playerName', function(req, res){
   
   if (req.params.playerName == 'player1') {
-    var cubo = player1.getCube();
+    var cube = player1.getCube();
+    var shots = player1.getShots();
   }
   
   if (req.params.playerName == 'player2') {
-    var cubo = player2.getCube();
+    var cube = player2.getCube();
+    var shots = player2.getShots();
+  }
+  
+  var dict = {
+    'cube': cube,
+    'shots': shots
   }
   
   res.header('Content-Type', 'text/plain');
-  res.send(JSON.stringify(cubo));
+  res.send(JSON.stringify(dict));
 
 });
 
@@ -81,10 +88,6 @@ app.get('/fire/:playerName/:xyz', function(req, res){
     // check the shot
     if (cubo[pos_x][pos_y][pos_z] == "1") {
       player1.upScore();
-      res.send('YEAH');
-    }
-    else {
-      res.send('NOPE');
     }
     
   }
@@ -96,15 +99,11 @@ app.get('/fire/:playerName/:xyz', function(req, res){
     // check the shot
     if (cubo[pos_x][pos_y][pos_z] == "1") {
       player1.upScore();
-      res.send('YEAH');
-    }
-    else {
-      res.send('NOPE');
     }
   }
   
   // just for http 200 check
-  res.send('NOTHING');
+  res.send('okay');
   
 });
 
