@@ -225,7 +225,7 @@ td { vertical-align: top; }
    ========================================================================== */
 
 body {
-  padding: 50px 0 0 50px;
+  padding: 50px 0;
   font-size: 15px;
   background-color: #CCCACA;
   font-family: 'DiavloMedium';
@@ -264,7 +264,7 @@ h1 {
 #main {
   margin: 0 auto;
   background: url('../images/backgroundHome.png') no-repeat 50% 0;
-  width: 1024px;
+  width: 960px;
   min-height: 600px;
   clear: both;
 }
