@@ -49,6 +49,7 @@ app.get('/table/:playerName', function(req, res){
   
   res.render('player1', {
     title: 'Player 1'
+    
   });
 });
 
@@ -80,26 +81,30 @@ app.get('/fire/:playerName/:xyz', function(req, res){
   pos_y = req.params.xyz.substr(1,1);
   pos_z = req.params.xyz.substr(2,1);
   
-  if (req.params.playerName == 'player1') {
-    // retreive player cube
-    var cubo = player1.getCube();
-    // console.log(JSON.stringify(cubo));
-    
-    // check the shot
-    if (cubo[pos_x][pos_y][pos_z] == "1") {
+  // shots[][][]==1, hit!
+  // shots[][][]==2, miss!
+  
+  if (req.params.playerName == 'player1') {    
+    if ((player2.cube[pos_x][pos_y][pos_z] == "1") && (player1.shots[pos_x][pos_y][pos_z] == '0')) {
+      player1.shots[pos_x][pos_y][pos_z] == '1');
       player1.upScore();
     }
+    if ((player2.cube[pos_x][pos_y][pos_z] == "0") && (player1.shots[pos_x][pos_y][pos_z] == '0')) {
+      player1.shots[pos_x][pos_y][pos_z] == '2');
+    }
+    
     
   }
-  if (req.params.playerName == 'player2') {
-    // retreive player cube
-    var cubo = player2.getCube();
-    // console.log(JSON.stringify(cubo));
-    
-    // check the shot
-    if (cubo[pos_x][pos_y][pos_z] == "1") {
-      player1.upScore();
+  if (req.params.playerName == 'player2') {    
+    if ((player1.cube[pos_x][pos_y][pos_z] == "1") && (player2.shots[pos_x][pos_y][pos_z] == '0')) {
+      player2.shots[pos_x][pos_y][pos_z] == '1');
+      player2.upScore();
     }
+    if ((player1.cube[pos_x][pos_y][pos_z] == "0") && (player2.shots[pos_x][pos_y][pos_z] == '0')) {
+      player2.shots[pos_x][pos_y][pos_z] == '2');
+    }
+    
+    
   }
   
   // just for http 200 check
