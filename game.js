@@ -2,6 +2,8 @@
 /**
  * Module dependencies.
  */
+var WEBSERVER_PORT = 8080
+
 
 var express = require('express');
 
@@ -34,11 +36,12 @@ app.get('/', function(req, res){
   });
 });
 
+
 app.get('/helloworld', function(req, res){
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello World\n');
+  res.render('hello', {
+    title: 'Hello World'
+  });
 });
 
-app.listen(8080);
-
+app.listen(WEBSERVER_PORT);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
