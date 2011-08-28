@@ -8,9 +8,6 @@
     "nko": "~0.0.1"
   },
   "devDependencies": {},
-  "engines": {
-    "node": "~v0.4.11"
-  },
   "author": "Power-ups",
   "description": "Cube Battle",
   "repository": {
