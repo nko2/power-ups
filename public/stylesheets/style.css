@@ -226,7 +226,7 @@ td { vertical-align: top; }
 
 body {
   padding: 50px 0 0 50px;
-  font-size: 14px;
+  font-size: 15px;
   background-color: #CCCACA;
   font-family: 'DiavloMedium';
   color: #777676;
@@ -239,17 +239,16 @@ a, a:link, a:active, a:hover {
 h1 {
   font-size: 18px;
 }
-h2 {
-  font-size: 16px;
-}
-h3 {
-  font-size: 14px;
-}
+
 
 .gallery {
   margin: 30px 0;
 }
 
+#video_player {
+  width: 720px;
+  margin: auto;
+}
 #main img {
   margin: 0px;
   padding: 8px;
