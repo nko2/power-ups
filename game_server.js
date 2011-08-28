@@ -4,7 +4,10 @@ var WEBSERVER_PORT = 8080
 var express = require('express');
 var app = module.exports = express.createServer();
 
-var Cube = require('./lib/player').Player;
+var game = require('./lib/game').Game;
+var utils = require('./lib/util').Util;
+
+utils = new Util();
 
 // Configuration
 app.configure(function(){
@@ -24,16 +27,8 @@ app.configure('production', function(){
   app.use(express.errorHandler()); 
 });
 
-
-// Game functions
-var player1 = new Player(), 
-    player2 = new Player();
-    
-setupGame = function(){
-  console.log("setuping game");
-  player1 = new Player(); 
-  player2 = new Player();
-} 
+// Games configuration
+games = {};
 
 // Routes
 app.get('/', function(req, res){
@@ -41,6 +36,56 @@ app.get('/', function(req, res){
     title: 'Cube Game'
   });
 });
+
+app.get('/newMatch', function(req, res){
+  
+  var blurb = utils.generateBlurb();
+  while (typeof games[blurb] != 'undefined') {
+    blurb = utils.generateBlurb();
+  }
+  
+  var game = new Game(blurb); 
+  games[blurb] = game;
+  console.log(blurb);
+  console.log(game.getBlurb());
+  
+  res.redirect('/');
+  
+});
+
+app.get('/match/:blurb', function(req, res){
+  game = games[req.params.blurb];
+  if( typeof game != 'undefined'){
+    res.render('match', {
+      title: 'Game',
+      blurb: game.blurb
+    });
+  }
+  else {
+    res.render('error', {
+      title: 'Error', 
+      msg: 'The game ' + req.params.blurb + ' does not exists.'
+    });
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.get('/table/:playerName', function(req, res){
   
