@@ -8,7 +8,11 @@
   <meta name="description" content="node.js knockout 2011 team excuses">
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
-
+	<link rel="stylesheet" type="text/css" href="/javascripts/shadowbox/shadowbox.css">
+	<script type="text/javascript" src="/javascripts/shadowbox/shadowbox.js"></script>
+	<script type="text/javascript">
+	Shadowbox.init();
+	</script>
   <link rel="stylesheet" href="/stylesheets/style.css">
 
 </head>
@@ -20,8 +24,57 @@
 			<div id="logo"><img src="images/logo.png" width="340" height="150" alt="Logo"></div>
     </header>
     <div id="main" role="main">
-			<h2>Who we are</h2>
-			<p></p>
+			<h1>Who we are</h1>
+			<p>We are a group of people who has an arduino lover member. So we wanted to put toghether node.js and ardunio some how. Our idea was to develop a battleship like game in three dimension, played in a cube of leds.</p>
+
+			<h1>The hardware</h1>
+
+			To build the game space we built a cube of leds, controlled by an arduino micro-controller, like the one in te picture below.
+
+			<led-cube-picture>
+			
+			<div class="gallery">
+				<a href="images/pics/IMG_9920.JPG" rel="shadowbox[leds]"><img src="images/pics/thumbs/IMG_9920.JPG" width="200" height="133" alt="IMG 9920"></a>
+				<a href="images/pics/IMG_9921.JPG" rel="shadowbox[leds]"><img src="images/pics/thumbs/IMG_9921.JPG" width="200" height="133" alt="IMG 9921"></a>
+				<a href="images/pics/IMG_9922.JPG" rel="shadowbox[leds]"><img src="images/pics/thumbs/IMG_9922.JPG" width="200" height="133" alt="IMG 9922"></a>
+				<a href="images/pics/IMG_9923.JPG" rel="shadowbox[leds]"><img src="images/pics/thumbs/IMG_9923.JPG" width="200" height="133" alt="IMG 9923"></a>
+				<a href="images/pics/IMG_9924.JPG" rel="shadowbox[leds]"><img src="images/pics/thumbs/IMG_9924.JPG" width="200" height="133" alt="IMG 9924"></a>
+				<a href="images/pics/IMG_9925.JPG" rel="shadowbox[leds]"><img src="images/pics/thumbs/IMG_9925.JPG" width="200" height="133" alt="IMG 9925"></a>
+			</div>
+			
+
+			<p>The player is able to point a point int the 3 dimensional space by using three knobs, one for each axis. And there is a fire button for the player to make an atempt to shop an enimies "ship".</p>
+
+			
+
+
+			<p>Infortunatly we didnt manage to get a working version in time. We were able to put the hardware together, as you can se from the video above, and the server side is working as far as we could test :). The game interface is still missing, so its not playable yet.</p>
+
+			<h1>The architeture</h1>
+
+			<p>The idea was to have a led cube communicating with a tiny server running on a machine. This server would receive all the input comming from the led cube and forward then to the game server. The game server would display the shots you have already attempted, the game score</p>
+			
+			<h1>Our code</h1>
+
+			<p>In our git repository we have all the code we have up to the moment, including this website and the code put into the arduino.
+
+			In the branch master is the code of the game server (in node.js). In the branch arduino is the code that runs in the arduino and the serve who listens to the arduino input and forwards them to the game server. And finaly in the branch website is the code for this web page.</p>
+				
+			<h1>Interface mockups</h1>
+
+			<p>Below as the mockup of the game interface we thought. We didnt managed to get then running but ther would display all the game progress (shots fired, score etc).</p>
+			
+			<div class="gallery">
+				<a href="images/screens/01-home.png" rel="shadowbox[screens]"><img src="images/screens/thumbs/01-home.png" width="200" height="150" alt="01 Home"></a>
+				<a href="images/screens/02-invite.png" rel="shadowbox[screens]"><img src="images/screens/thumbs/02-invite.png" width="200" height="150" alt="02 Invite"></a>
+				<a href="images/screens/03-connecting.png" rel="shadowbox[screens]"><img src="images/screens/thumbs/03-connecting.png" width="200" height="150" alt="03 Connecting"></a>
+				<a href="images/screens/04-wait.png" rel="shadowbox[screens]"><img src="images/screens/thumbs/04-wait.png" width="200" height="150" alt="04 Wait"></a>
+				<a href="images/screens/05-shoot.png" rel="shadowbox[screens]"><img src="images/screens/thumbs/05-shoot.png" width="200" height="150" alt="05 Shoot"></a>
+				<a href="images/screens/06-rematch.png" rel="shadowbox[screens]"><img src="images/screens/thumbs/06-rematch.png" width="200" height="150" alt="06 Rematch"></a>
+			</div>
+			
+			
+			
     </div>
     <footer>
 

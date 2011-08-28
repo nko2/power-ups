@@ -233,7 +233,29 @@ body {
 }
 
 a, a:link, a:active, a:hover {
-  color: #00B7FF;
+  color: #777676;
+}
+
+h1 {
+  font-size: 18px;
+}
+h2 {
+  font-size: 16px;
+}
+h3 {
+  font-size: 14px;
+}
+
+.gallery {
+  margin: 30px 0;
+}
+
+#main img {
+  margin: 0px;
+  padding: 8px;
+}
+#main img:hover {
+  background-color: #777676;
 }
 
 #main {
