@@ -1,17 +1,11 @@
+
 {
-  "name": "cubebattle",
-  "version": "0.0.1",
-  "private": true,
-  "dependencies": {
-    "express": "2.4.6",
-    "jade": ">= 0.0.1",
-    "nko": "~0.0.1"
-  },
-  "devDependencies": {},
-  "author": "Power-ups",
-  "description": "Cube Battle",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/nko2/power-ups.git"
+    "name": "cubebattle"
+  , "version": "0.0.1"
+  , "private": true
+  , "dependencies": {
+      "express": "2.4.6",
+	    "jade": ">= 0.0.1",
+	    "nko": "~0.0.1"
   }
 }
