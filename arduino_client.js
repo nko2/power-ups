@@ -1,14 +1,22 @@
 // Config
 PLAYER_NAME = 'player1';
-SERIAL_PORT = '/dev/tty.usbserial-A8004Jre';
+SERIAL_PORT = '/dev/tty.usbserial-A700dE8G';
 HOST_NAME = 'localhost';
 HOST_PORT = 8080;
 
 var http = require('http');
 var SerialPort = require("serialport").SerialPort;
-var serialPort = new SerialPort(SERIAL_PORT);
+var serialPort = new SerialPort(SERIAL_PORT, {baudrate:57600});
 
+var xyz = 0;
 
+serialPort.on("data", function (data) {
+    xyz = parseInt(data);
+    //para nao vir numeros quebrados
+    if (xyz>=100){
+//      console.log("Dado: "+xyz);
+    }  
+});
 
 
 
