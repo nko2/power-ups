@@ -232,8 +232,12 @@ body {
   color: #777676;
 }
 
-a, a:link, a:active, a:hover {
+a, a:link, a:active, a:hover, a:visited {
   color: #777676;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
 }
 
 h1 {
