@@ -9,7 +9,7 @@
   },
   "devDependencies": {},
   "engines": {
-    "node": "*"
+    "node": "~v0.4.11"
   },
   "author": "Power-ups",
   "description": "Cube Battle",
