@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -28,14 +27,46 @@ app.configure('production', function(){
   app.use(express.errorHandler()); 
 });
 
-// Routes
+// Game functions
+setupGame = function(){
+  console.log("setuping game");
+} 
 
+// Routes
 app.get('/', function(req, res){
   res.render('index', {
-    title: 'Express'
+    title: 'Cube Game'
   });
 });
 
+app.get('/player1', function(req, res){
+  res.render('player1', {
+    title: 'Player 1'
+  });
+});
+
+app.get('/player2', function(req, res){
+  res.render('player2', {
+    title: 'Player 2'
+  });
+});
+
+app.get('/atualiza', function(req, res){
+  
+});
+
+app.get('/iniciajogo', function(req, res){
+  res.redirect('/player1');
+});
+
+app.get('/entrajogo', function(req, res){
+  res.redirect('/player2');
+});
+
+app.get('/startmatch', function(req, res){
+    setupGame();
+    res.redirect('/player1');
+});
 
 app.get('/helloworld', function(req, res){
   res.render('hello', {
