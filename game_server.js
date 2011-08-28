@@ -86,22 +86,22 @@ app.get('/fire/:playerName/:xyz', function(req, res){
   
   if (req.params.playerName == 'player1') {    
     if ((player2.cube[pos_x][pos_y][pos_z] == "1") && (player1.shots[pos_x][pos_y][pos_z] == '0')) {
-      player1.shots[pos_x][pos_y][pos_z] == '1');
+      player1.shots[pos_x][pos_y][pos_z] == '1';
       player1.upScore();
     }
     if ((player2.cube[pos_x][pos_y][pos_z] == "0") && (player1.shots[pos_x][pos_y][pos_z] == '0')) {
-      player1.shots[pos_x][pos_y][pos_z] == '2');
+      player1.shots[pos_x][pos_y][pos_z] == '2';
     }
     
     
   }
   if (req.params.playerName == 'player2') {    
     if ((player1.cube[pos_x][pos_y][pos_z] == "1") && (player2.shots[pos_x][pos_y][pos_z] == '0')) {
-      player2.shots[pos_x][pos_y][pos_z] == '1');
+      player2.shots[pos_x][pos_y][pos_z] == '1';
       player2.upScore();
     }
     if ((player1.cube[pos_x][pos_y][pos_z] == "0") && (player2.shots[pos_x][pos_y][pos_z] == '0')) {
-      player2.shots[pos_x][pos_y][pos_z] == '2');
+      player2.shots[pos_x][pos_y][pos_z] == '2';
     }
     
     
